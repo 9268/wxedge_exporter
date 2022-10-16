@@ -15,7 +15,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: 9268111/wxedge_exporter
-          tags: $GITHUB_RUN_ID, latest
+          addLatest: true
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
