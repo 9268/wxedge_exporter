@@ -8,21 +8,15 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v2
+      - uses: actions/checkout@v1.0
+        name: Check out code
+    
+      - uses: mr-smithers-excellent/docker-build-push@v3
+        name: Build & push Docker image
         with:
+          image: 9268111/wxedge_exporter
+          tags: $GITHUB_RUN_ID, latest
+          registry: docker.io
+          dockerfile: Dockerfile.ci
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: 9268111/wxedge_exporter:latest
