@@ -17,6 +17,6 @@ jobs:
           image: 9268111/wxedge_exporter
           tags: $GITHUB_RUN_ID, latest
           registry: docker.io
-          dockerfile: Dockerfile.ci
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
