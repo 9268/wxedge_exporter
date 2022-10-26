@@ -14,6 +14,7 @@ type Config struct {
 var Configs Config
 
 func ReadConfig() {
+	viper.AutomaticEnv()
 	viper.SetConfigFile("./config.yaml")
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
