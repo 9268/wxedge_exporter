@@ -20,7 +20,7 @@ func main() {
 	logrus.Infof("初始化完成")
 
 	logrus.Infof("初始化监控指标")
-	metrics := collector.NewMetrics(viper.GetString("namespace"))
+	metrics := collector.NewMetrics(config.Configs.NameSpace)
 	registry := prometheus.NewRegistry()
 	registry.MustRegister(metrics)
 	logrus.Infof("监控指标初始化注册完成")

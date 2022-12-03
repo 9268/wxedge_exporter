@@ -7,7 +7,7 @@ import (
 type Config struct {
 	Port      int      `json:"port"`
 	Host      []string `json:"host"`
-	NameSpace []string `json:"namespace"`
+	NameSpace string `json:"namespace"`
 }
 
 var Configs Config
@@ -25,9 +25,9 @@ func ReadConfig() {
 	viper.SetDefault("namespace", "wxedge")
 
 	Configs.Port = viper.GetInt("port")
-	Configs.Host = viper.GetStringSlice("host")
-	Configs.NameSpace = viper.GetStringSlice("namespace")
+	Configs.Host = strings.Split(viper.GetString("host"),",")
+	Configs.NameSpace = viper.GetString("namespace")
 }
 func GetHost() []string {
-	return viper.GetStringSlice("Host")
+	return Configs.Host
 }
