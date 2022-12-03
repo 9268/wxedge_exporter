@@ -15,11 +15,11 @@ var Configs Config
 
 func ReadConfig() {
 	viper.AutomaticEnv()
-	viper.SetConfigFile("./config.yaml")
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath(".")
-	viper.AddConfigPath("./conf")
+	// viper.SetConfigFile("./config.yaml")
+	// viper.SetConfigName("config")
+	// viper.SetConfigType("yaml")
+	// viper.AddConfigPath(".")
+	// viper.AddConfigPath("./conf")
 
 	viper.SetDefault("host", []string{"http://127.0.0.1:18888"})
 	viper.SetDefault("port", 9001)
