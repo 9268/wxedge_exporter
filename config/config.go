@@ -25,10 +25,6 @@ func ReadConfig() {
 	viper.SetDefault("port", 9001)
 	viper.SetDefault("namespace", "wxedge")
 
-	err := viper.ReadInConfig()
-	if err != nil {
-		panic(fmt.Errorf("Fatal error config file: %s \n", err))
-	}
 	Configs.Port = viper.GetInt("port")
 	Configs.Host = viper.GetStringSlice("host")
 	Configs.NameSpace = viper.GetStringSlice("namespace")
